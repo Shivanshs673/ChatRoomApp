@@ -49,9 +49,9 @@ class MessageViewModel : ViewModel() {
             )
             viewModelScope.launch {
                 when (messageRepository.sendMessage(_roomId.value.toString(), message)) {
-                    is Success -> Unit
+                    is Success -> loadMessages()
                     is Error -> {
-
+                        // Handle error
                     }
                 }
             }

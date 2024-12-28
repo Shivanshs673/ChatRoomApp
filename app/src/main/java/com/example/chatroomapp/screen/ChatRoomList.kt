@@ -90,7 +90,9 @@ fun ChatRoomListScreen(
                     ) {
                         Button(
                             onClick = {
-                                if(name.isNotBlank()) {
+                                if (name.isNotBlank()) {
+                                    roomViewModel.createRoom(name)
+                                    roomViewModel.loadRooms()
                                     showDialog = false
                                 }
                             }
